@@ -23,13 +23,13 @@ function keyListener(key){
 	let keyCode = key.keyCode;
 	switch(keyCode){
 		// left arrow
-		case 37: s.parts[0][0] -= res; if(s.parts[0][0] < 0){ s.parts[0][0] = canvas.width - res; } break;
+		case 37: s.dir = "left"; break;
 		// up arrow
-		case 38: s.parts[0][1] -= res; if(s.parts[0][1] < 0){ s.parts[0][1] = canvas.height - res; } break;
+		case 38: s.dir = "up"; break;
 		// right arrow
-		case 39: s.parts[0][0] += res; if(s.parts[0][0] + res > canvas.width){ s.parts[0][0] = 0; } break;
+		case 39: s.dir = "right"; break;
 		// down arrow
-		case 40: s.parts[0][1] += res; if(s.parts[0][1] + res > canvas.height){ s.parts[0][1] = 0; } break;
+		case 40: s.dir = "down"; break;
 	}
 	drawSnake();
 }
@@ -42,17 +42,29 @@ function drawSnake(){
 }
 
 function updateSnake(){
-	if(dir == 1){
+	if(s.dir == "up"){
 		s.parts[0][1] -= res;
 		if(s.parts[0][1] < 0){
 			s.parts[0][1] = canvas.height - res;
 		}
 	}
-	else if(dir == 2){
+	else if(s.dir == "right"){
+    s.parts[0][0] += res;
+    if(s.parts[0][0] + res > canvas.width){
+      s.parts[0][0] = 0;
+    }
 	}
-	else if(dir == 3){
+	else if(s.dir == "down"){
+    s.parts[0][1] += res;
+    if(s.parts[0][1] + res > canvas.height){
+      s.parts[0][1] = 0;
+    }
 	}
-	else if(dir == 4){
+	else if(s.dir == "left"){
+    s.parts[0][0] -= res;
+    if(s.parts[0][0] < 0){
+      s.parts[0][0] = canvas.width - res;
+    }
 	}
 }
 
@@ -61,3 +73,7 @@ console.log(s);
 
 drawSnake();
 console.log(canvas);
+
+function draw(){
+  updateSnake();
+}
