@@ -31,7 +31,6 @@ function keyListener(key){
 		// down arrow
 		case 40: s.dir = "down"; break;
 	}
-	drawSnake();
 }
 
 function drawSnake(){
@@ -68,12 +67,14 @@ function updateSnake(){
 	}
 }
 
-let s = new Snake([[0, 0]]);
+let s = new Snake([[0, 0]], "right");
 console.log(s);
 
 drawSnake();
 console.log(canvas);
 
 function draw(){
+  frameRate(10);
   updateSnake();
+  drawSnake();
 }
