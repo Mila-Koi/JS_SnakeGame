@@ -1,80 +1,46 @@
 class Snake{
-  constructor(parts, dir){
+  constructor(parts, dir, res){
   	this.parts = parts;
   	this.dir = dir;
+    this.res = res;
   }
-}
 
-let res = 15;
-let context = document.getElementById("myCanvas").getContext("2d");
-let canvas = context.canvas;
+  updateSnake(){
+  	if(this.dir == "up"){
+  		this.parts[0][1] -= res;
+  	}
+  	else if(this.dir == "right"){
+      this.parts[0][0] += res;
+  	}
+  	else if(this.dir == "down"){
+      this.parts[0][1] += res;
+  	}
+  	else if(s.dir == "left"){
+      this.parts[0][0] -= res;
+  	}
+  }
 
-let gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
-gradient.addColorStop(0, "#DAE1ED");
-gradient.addColorStop(1, "#535456");
+  drawSnake(){
+    rect(this.parts[0][0], this.parts[0][1], res, res);
+  }
 
-canvas.width = 25 * res;
-canvas.height = 25 * res;
-
-
-window.addEventListener("keydown", keyListener, false);
-
-function keyListener(key){
-	let keyCode = key.keyCode;
-	switch(keyCode){
-		// left arrow
-		case 37: s.dir = "left"; break;
-		// up arrow
-		case 38: s.dir = "up"; break;
-		// right arrow
-		case 39: s.dir = "right"; break;
-		// down arrow
-		case 40: s.dir = "down"; break;
-	}
-}
-
-function drawSnake(){
-	context.fillStyle = gradient;
-	context.fillRect(0, 0, canvas.width, canvas.height);
-	context.fillStyle = "#000000";
-	context.fillRect(s.parts[0][0], s.parts[0][1], res, res);
-}
-
-function updateSnake(){
-	if(s.dir == "up"){
-		s.parts[0][1] -= res;
-		if(s.parts[0][1] < 0){
-			s.parts[0][1] = canvas.height - res;
-		}
-	}
-	else if(s.dir == "right"){
-    s.parts[0][0] += res;
-    if(s.parts[0][0] + res > canvas.width){
-      s.parts[0][0] = 0;
+  checkBounds(width, height){
+    if(this.parts[0][1] < 0){
+      console.log(":(")
+      this.parts[0][1] = height - this.res;
+      console.log(this.parts[0][1]);
     }
-	}
-	else if(s.dir == "down"){
-    s.parts[0][1] += res;
-    if(s.parts[0][1] + res > canvas.height){
-      s.parts[0][1] = 0;
+    else if(this.parts[0][0] + this.res > width){
+      console.log(":O")
+      this.parts[0][0] = 0;
     }
-	}
-	else if(s.dir == "left"){
-    s.parts[0][0] -= res;
-    if(s.parts[0][0] < 0){
-      s.parts[0][0] = canvas.width - res;
+    else if(this.parts[0][1] + this.res > height){
+      console.log(":)")
+      this.parts[0][1] = 0;
     }
-	}
-}
-
-let s = new Snake([[0, 0]], "right");
-console.log(s);
-
-drawSnake();
-console.log(canvas);
-
-function draw(){
-  frameRate(10);
-  updateSnake();
-  drawSnake();
+    else if(this.parts[0][0] < 0){
+      console.log(":D")
+      this.parts[0][0] = width - this.res;
+    }
+  }
 }
