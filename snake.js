@@ -1,7 +1,7 @@
 class Snake{
-  constructor(parts){
+  constructor(parts, dir){
   	this.parts = parts;
-    console.log("mew");
+  	this.dir = dir;
   }
 }
 
@@ -41,14 +41,23 @@ function drawSnake(){
 	context.fillRect(s.parts[0][0], s.parts[0][1], res, res);
 }
 
-
-
+function updateSnake(){
+	if(dir == 1){
+		s.parts[0][1] -= res;
+		if(s.parts[0][1] < 0){
+			s.parts[0][1] = canvas.height - res;
+		}
+	}
+	else if(dir == 2){
+	}
+	else if(dir == 3){
+	}
+	else if(dir == 4){
+	}
+}
 
 let s = new Snake([[0, 0]]);
 console.log(s);
-
-
-
 
 drawSnake();
 console.log(canvas);
