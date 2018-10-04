@@ -1,0 +1,15 @@
+#myCanvas {
+	display: block;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+}
+
+#alternateButton {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+}
