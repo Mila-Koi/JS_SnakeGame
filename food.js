@@ -1,14 +1,25 @@
-class Food{
+class Food {
+
   constructor(x, y){
     this.x = x;
     this.y = y;
   }
 
   move(snake) {
-    this.x = Math.floor(Math.random(width) + 1);
-    this.y = Math.floor(Math.random(height) + 1);
-    for(var part in snake.parts) {
-      console.log(part[0]);
+    let foundSpot = false
+
+
+    while(!foundSpot){
+      foundSpot = true;
+
+      this.x = floor(Math.random() * width / res);
+      this.y = floor(Math.random() * height / res);
+
+      for(let i in snake.parts) {
+        if(this.x == snake.parts[i].x && this.y == snake.parts[i].y){
+          foundSpot = false;
+        }
+      }
     }
   }
 }

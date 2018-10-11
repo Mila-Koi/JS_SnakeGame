@@ -19,10 +19,26 @@ function setup(){
 
 function keyPressed(){
 	switch(keyCode){
-		case LEFT_ARROW: s.dir = "left"; break;
-		case UP_ARROW: s.dir = "up"; break;
-		case RIGHT_ARROW: s.dir = "right"; break;
-		case DOWN_ARROW: s.dir = "down"; break;
+		case LEFT_ARROW:
+			if(!(s.dir == "right")){
+				s.dir = "left";
+			}
+			break;
+		case UP_ARROW:
+			if(!(s.dir == "down")){
+				s.dir = "up";
+			}
+			break;
+		case RIGHT_ARROW:
+			if(!(s.dir == "left")){
+				s.dir = "right";
+			}
+			break;
+		case DOWN_ARROW:
+			if(!(s.dir == "up")){
+				s.dir = "down";
+			}
+			break;
 	}
 }
 
@@ -31,8 +47,10 @@ function keyPressed(){
 function draw(){
   clear();
   background(180);
+  s.checkSelfIntersect();
   s.updateSnake();
   s.checkBounds(width, height);
+  s.checkEat(f, res);
   s.drawSnake();
   drawFood();
 }
