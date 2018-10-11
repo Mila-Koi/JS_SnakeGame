@@ -16,7 +16,7 @@ class Food {
       this.y = floor(Math.random() * height / res);
 
       for(let i in snake.parts) {
-        if(this.x == snake.parts[i].x && this.y == snake.parts[i].y){
+        if(this.x == snake.parts[i].x / res && this.y == snake.parts[i].y / res){
           foundSpot = false;
         }
       }
