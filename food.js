@@ -21,5 +21,12 @@ class Food {
         }
       }
     }
+
+  }
+
+
+  drawFood(res){
+  	fill(color(255, 0, 0));
+  	rect(f.x * res, f.y * res, res, res);
   }
 }

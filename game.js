@@ -6,12 +6,6 @@ let snakeLocation = new Coordinate(0, 0);
 let s = new Snake([snakeLocation], "right", res);
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
 
-function drawFood(){
-	fill(color(255, 0, 0));
-	rect(f.x * res, f.y * res, res, res);
-}
-
-
 function setup(){
   var canvas = createCanvas(width, height);
 	canvas.parent('canvas-holder');
@@ -54,7 +48,7 @@ function draw(){
   s.checkBounds(width, height);
   s.checkEat(f, res);
   s.drawSnake();
-  drawFood();
+  f.drawFood(res);
 }
 
 
