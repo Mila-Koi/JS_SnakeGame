@@ -175,6 +175,9 @@ function draw(){
 			justChangedDir = false;
 			submitted = false;
 			fd = 6;
+			$("#score").html("0");
+			$("#minutes").html("00");
+			$("#seconds").html("00");
 		}
 	}
 }
