@@ -5,6 +5,7 @@ let width = size * res; // Canvas width and height
 let height = (size - 10) * res;
 let snakeLocation = new Coordinate(0, 0);
 let gameStarted = false;
+let justChangedDir = false;
 let s = new Snake([snakeLocation], "right", res);
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
 var fd = 6;
@@ -44,21 +45,25 @@ function mouseOverButton(){
 function keyPressed(){
 	switch(keyCode){
 		case LEFT_ARROW:
+			justChangedDir = true;
 			if(!(s.dir == "right")){
 				s.dir = "left";
 			}
 			break;
 		case UP_ARROW:
+			justChangedDir = true;
 			if(!(s.dir == "down")){
 				s.dir = "up";
 			}
 			break;
 		case RIGHT_ARROW:
+			justChangedDir = true;
 			if(!(s.dir == "left")){
 				s.dir = "right";
 			}
 			break;
 		case DOWN_ARROW:
+			justChangedDir = true;
 			if(!(s.dir == "up")){
 				s.dir = "down";
 			}
@@ -90,6 +95,10 @@ function draw(){
   	s.checkEat(f, res);
   	s.drawSnake();
   	f.drawFood(res);
+
+		if(justChangedDir){
+			
+		}
 	}
 	else{
 		background(166, 145, 247);
