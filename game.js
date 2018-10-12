@@ -14,7 +14,6 @@ function preload(){
 }
 
 function setup(){
-
   var canvas = createCanvas(width, height);
 	canvas.parent('canvas-holder');
   frameRate(60);
@@ -71,6 +70,7 @@ function keyPressed(){
 
 function draw(){
 	if(gameStarted){
+		rectMode(CORNER);
   	clear();
   	background(180);
 		if(frameCount % fd == 0){
