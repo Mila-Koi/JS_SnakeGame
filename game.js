@@ -73,7 +73,11 @@ function draw(){
 	if(gameStarted){
   	clear();
   	background(180);
+<<<<<<< HEAD
 		if(frameCount % fd == 0){
+=======
+		if(frameCount % 6 == 0){
+>>>>>>> 99a66f5 (Submit high score to API on death)
 				s.updateSnake();
 		}
   	s.checkSelfIntersect();
