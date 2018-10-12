@@ -7,6 +7,7 @@ let snakeLocation = new Coordinate(0, 0);
 let gameStarted = false;
 let s = new Snake([snakeLocation], "right", res);
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
+var fd = 6;
 
 function preload(){
 	gameLogo = loadImage("./thumbnail.png");
@@ -72,7 +73,7 @@ function draw(){
 	if(gameStarted){
   	clear();
   	background(180);
-		if(frameCount % 10 == 0){
+		if(frameCount % fd == 0){
 				s.updateSnake();
 		}
   	s.checkSelfIntersect();

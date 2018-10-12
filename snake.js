@@ -105,6 +105,12 @@ class Snake{
       this.increasing = true
       score=document.getElementById("score").innerHTML;
       document.getElementById("score").innerHTML=++score;
+
+      if((document.getElementById("score").innerHTML % 5 == 0) && (document.getElementById("score").innerHTML != 0)){
+        if(fd > 1){
+          fd--;
+        }
+      }
     }
 
   }
