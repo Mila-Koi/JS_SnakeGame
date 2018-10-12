@@ -16,7 +16,7 @@ function setup(){
 
   var canvas = createCanvas(width, height);
 	canvas.parent('canvas-holder');
-  frameRate(10);
+  frameRate(60);
 	update_scores(); // update scores for high score API
   aniText();
 }
@@ -72,8 +72,10 @@ function draw(){
 	if(gameStarted){
   	clear();
   	background(180);
+		if(frameCount % 10 == 0){
+				s.updateSnake();
+		}
   	s.checkSelfIntersect();
-  	s.updateSnake();
   	s.checkBounds(width, height);
   	s.checkEat(f, res);
   	s.drawSnake();
