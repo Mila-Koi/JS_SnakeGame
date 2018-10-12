@@ -1,10 +1,9 @@
 
 
 class Snake{
-  constructor(parts, dir, res){
+  constructor(parts, dir){
   	this.parts = parts;
   	this.dir = dir;
-    this.res = res;
     this.increasing = false
     this.selfIntersects = false
   }
@@ -48,9 +47,8 @@ class Snake{
     rect(this.parts[0][0], this.parts[0][1], res, res);
 =======
     if(this.selfIntersects){
+      gameEnded = true;
       fill(color(200, 0, 0));
-      noLoop();
-      updateHighScore(parseInt($("#score").html()));
       clearInterval(timeBoi);
     }
     else{
@@ -63,6 +61,7 @@ class Snake{
   }
 
   checkBounds(width, height){
+<<<<<<< HEAD
     if(this.parts[0][1] < 0){
       console.log(":(")
       this.parts[0][1] = height - this.res;
@@ -78,12 +77,26 @@ class Snake{
       this.parts[0][1] = 0;
 =======
     else if(this.parts[0].y + this.res > height){
+=======
+    if(this.parts[0].y < 0){
+      this.parts[0].y = height - res;
+    }
+    else if(this.parts[0].x + res > width){
+      this.parts[0].x = 0;
+    }
+    else if(this.parts[0].y + res > height){
+>>>>>>> 855db5f (Added death screen)
       this.parts[0].y = 0;
 >>>>>>> e0aefd6 (Added food collection, snake growth, game ends upon collision)
     }
+<<<<<<< HEAD
     else if(this.parts[0][0] < 0){
       console.log(":D")
       this.parts[0][0] = width - this.res;
+=======
+    else if(this.parts[0].x < 0){
+      this.parts[0].x = width - res;
+>>>>>>> 855db5f (Added death screen)
     }
   }
 
