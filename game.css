@@ -8,6 +8,8 @@
 header {
 	color: white;
 	text-align: center;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
 body {
@@ -46,4 +48,8 @@ body {
 #column-3 {
 	margin-right: auto;
 	width: 30%;
+}
+
+#highdiv {
+	width: 85% !important;
 }
