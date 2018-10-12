@@ -103,7 +103,10 @@ class Snake{
     if(this.parts[0].x / res == food.x && this.parts[0].y / res == food.y){
       food.move(this);
       this.increasing = true
+      score=document.getElementById("score").innerHTML;
+      document.getElementById("score").innerHTML=++score;
     }
+
   }
 
 }
