@@ -13,8 +13,10 @@ function drawFood(){
 
 
 function setup(){
-  createCanvas(width, height);
+  var canvas = createCanvas(width, height);
+	canvas.parent('canvas-holder');
   frameRate(10);
+	update_scores(); // update scores for high score API
 }
 
 function keyPressed(){
@@ -53,4 +55,9 @@ function draw(){
   s.checkEat(f, res);
   s.drawSnake();
   drawFood();
+}
+
+
+function updateHighScore(score){
+	highscore(score);  // submit to API
 }

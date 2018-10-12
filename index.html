@@ -4,7 +4,10 @@
 <head>
   <title>JS Snake Game</title>
   <link rel="stylesheet" type="text/css" href="snake.css" />
+  <link rel="stylesheet" href="highscore.css">
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="HighscoreAPI.js"></script>
   <script src = coordinate.js></script>
   <script src = food.js></script>
   <script src = snake.js></script>
@@ -17,23 +20,38 @@
 
 <body>
 
-<header>
-  <a id = "top-of-page"></a>
+  <header>
+    <a id = "top-of-page"></a>
 
-  <h1 id = "about">Play Snake</h1>
+    <h1 id = "about">Play Snake</h1>
 
-  <div style = "text-align: center">
-  </div>
-</header>
+    <div id="canvas-holder">
 
-<!-- Horizontal rule -->
-<hr />
+    </div>
 
+  </header>
 
-
+  <hr />
 
 
 
+  <div id="highdiv">
+  			<table id="hightable">
+  				<tr>
+  					<th>User</th>
+  					<th>Score</th>
+  				</tr>
+
+  			</table>
+  			<table id="myhightable">
+  				<tr>
+  					<th colspan="2">Your High Score</th>
+  				</tr>
+  				<tr id="myhighscore">
+  					<td colspan="2">You don't have one yet!</td>
+  				</tr>
+  			</table>
+  		</div>
 </body>
 
 </html>
