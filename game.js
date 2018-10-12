@@ -34,8 +34,6 @@ function aniText(){
     $("#about").fadeIn("slow");
     $("#about").fadeOut("slow");
     $("#about").fadeIn("slow");
-
-
 }
 
 function mouseOverButton(){
@@ -43,44 +41,28 @@ function mouseOverButton(){
 }
 
 function keyPressed(){
-	// if(justChangedDir){
-	// 	$("*").on("keydown", "#markdown, #sku", function(e) {
-	//
-	// 		var key = e.which;
-	//
-	// 		if (key == 37 || key == 39 || key==38 || key== 40) {
-	// 				e.preventDefault();
-	// 		}
-	// 	});
-	// 	justChangedDir=false;
-	// }
 	switch(keyCode){
 		case LEFT_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "right")){
 				s.dir = "left";
 			}
 			break;
 		case UP_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "down")){
 				s.dir = "up";
 			}
 			break;
 		case RIGHT_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "left")){
 				s.dir = "right";
 			}
 			break;
 		case DOWN_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "up")){
 				s.dir = "down";
 			}
 			break;
 	}
-
 }
 
 
