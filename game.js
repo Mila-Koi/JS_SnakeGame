@@ -4,7 +4,7 @@ let gameLogo;
 let width = size * res; // Canvas width and height
 let height = (size - 10) * res;
 let snakeLocation = new Coordinate(0, 0);
-let gameStarted = true;
+let gameStarted = false;
 let s = new Snake([snakeLocation], "right", res);
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
 
@@ -96,6 +96,10 @@ function draw(){
 		textSize(30);
 		fill(color(255, 255, 255));
 		text("Start Game", width/2, height - 128);
+
+		if(mouseOverButton() && mouseIsPressed){
+			gameStarted = !gameStarted;
+		}
 
 
 	}
