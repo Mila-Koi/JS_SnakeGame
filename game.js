@@ -4,7 +4,7 @@ let gameLogo;
 let width = size * res; // Canvas width and height
 let height = (size - 10) * res;
 let snakeLocation = new Coordinate(0, 0);
-let gameStarted = false;
+let gameStarted = true;
 let s = new Snake([snakeLocation], "right", res);
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
 
@@ -13,10 +13,27 @@ function preload(){
 }
 
 function setup(){
+
   var canvas = createCanvas(width, height);
 	canvas.parent('canvas-holder');
   frameRate(10);
 	update_scores(); // update scores for high score API
+  aniText();
+}
+
+function aniText(){
+    $("#about").fadeIn("slow");
+    $("#about").fadeOut("slow");
+    $("#about").fadeIn("slow");
+    $("#about").fadeOut("slow");
+    $("#about").fadeIn("slow");
+    $("#about").fadeOut("slow");
+    $("#about").fadeIn("slow");
+    $("#about").fadeOut("slow");
+    $("#about").fadeIn("slow");
+    $("#about").fadeOut("slow");
+    $("#about").fadeIn("slow");
+
 
 }
 
