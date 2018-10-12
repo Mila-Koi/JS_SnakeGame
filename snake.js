@@ -34,7 +34,8 @@ class Snake{
     if(this.selfIntersects){
       fill(color(200, 0, 0));
       noLoop();
-      updateHighScore(parseInt($("#score").html()))
+      updateHighScore(parseInt($("#score").html()));
+      clearInterval(timeBoi);
     }
     else{
       fill(color(255, 255, 255));
