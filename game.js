@@ -74,11 +74,16 @@ function draw(){
   	clear();
   	background(180);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if(frameCount % fd == 0){
 =======
 		if(frameCount % 6 == 0){
 >>>>>>> 99a66f5 (Submit high score to API on death)
 				s.updateSnake();
+=======
+		if(frameCount % fd == 0){
+			s.updateSnake();
+>>>>>>> 7c4eba7 (Fixed merge conflicts)
 		}
   	s.checkSelfIntersect();
   	s.checkBounds(width, height);
