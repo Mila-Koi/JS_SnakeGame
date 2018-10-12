@@ -72,7 +72,7 @@ function draw(){
 	if(gameStarted){
   	clear();
   	background(180);
-		if(frameCount % 10 == 0){
+		if(frameCount % 6 == 0){
 				s.updateSnake();
 		}
   	s.checkSelfIntersect();
