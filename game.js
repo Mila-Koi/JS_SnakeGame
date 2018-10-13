@@ -44,6 +44,17 @@ function mouseOverButton(){
 }
 
 function keyPressed(){
+	// if(justChangedDir){
+	// 	$("*").on("keydown", "#markdown, #sku", function(e) {
+	//
+	// 		var key = e.which;
+	//
+	// 		if (key == 37 || key == 39 || key==38 || key== 40) {
+	// 				e.preventDefault();
+	// 		}
+	// 	});
+	// 	justChangedDir=false;
+	// }
 	switch(keyCode){
 		case LEFT_ARROW:
 			justChangedDir = true;
@@ -70,6 +81,7 @@ function keyPressed(){
 			}
 			break;
 	}
+
 }
 
 
@@ -110,12 +122,8 @@ function draw(){
 		if(mouseOverButton() && mouseIsPressed){
 			startGame();
 		}
-
-
 	}
 	else{
-
-
 		textAlign(CENTER);
 		textSize(30);
 		background(50, 10, 80);
@@ -146,8 +154,6 @@ function draw(){
 function updateHighScore(score){
 	highscore(score);  // submit to API
 }
-
-
 
 
 var timeBoi;
