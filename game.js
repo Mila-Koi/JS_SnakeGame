@@ -49,25 +49,21 @@ function mouseOverPlayAgain(){
 function keyPressed(){
 	switch(keyCode){
 		case LEFT_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "right")){
 				s.dir = "left";
 			}
 			break;
 		case UP_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "down")){
 				s.dir = "up";
 			}
 			break;
 		case RIGHT_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "left")){
 				s.dir = "right";
 			}
 			break;
 		case DOWN_ARROW:
-			justChangedDir = true;
 			if(!(s.dir == "up")){
 				s.dir = "down";
 			}
