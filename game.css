@@ -9,6 +9,35 @@ header {
 	color: white;
 	text-align: center;
 }
+
 body {
+	overflow: hidden;
 	background-image: url("./images/snakebg.png");
+}
+
+.column {
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+	color: white;
+}
+
+
+#column-2 {
+
+	margin-left: auto;
+
+}
+
+#column-3 {
+width:50%;
+
+	margin-right: auto;
 }
