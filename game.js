@@ -1,12 +1,13 @@
 let size = 50; // Number of snake pixels the canvas size is
-let res = 15; // Number of pixels per "snake pixel"
+var res = 15; // Number of pixels per "snake pixel"
 let gameLogo;
 let width = size * res; // Canvas width and height
 let height = (size - 10) * res;
 let snakeLocation = new Coordinate(0, 0);
 let gameStarted = false;
+var gameEnded = false;
 let justChangedDir = false;
-let s = new Snake([snakeLocation], "right", res);
+let s = new Snake([snakeLocation], "right");
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
 var fd = 6;
 
@@ -68,9 +69,9 @@ function keyPressed(){
 
 
 function draw(){
-	if(gameStarted){
+	clear();
+	if(gameStarted && !gameEnded){
 		rectMode(CORNER);
-  	clear();
   	background(180);
 		if(frameCount % fd == 0){
 			s.updateSnake();
@@ -81,10 +82,8 @@ function draw(){
   	s.drawSnake();
   	f.drawFood(res);
 
-
-
 	}
-	else{
+	else if(!gameEnded){
 		background(166, 145, 247);
 
 		if(mouseOverButton()){
@@ -93,10 +92,10 @@ function draw(){
 		else{
 			fill(color(110, 86, 201));
 		}
-		rectMode(CENTER);
-		rect(width / 2, height / 2 + 160, 220, 70);
 		imageMode(CENTER);
 		image(gameLogo, width/2, height / 3.5 + 50, gameLogo.width / 1.5, gameLogo.height / 1.5);
+		rectMode(CENTER);
+		rect(width / 2, height / 2 + 160, 220, 70);
 		textAlign(CENTER);
 		textSize(30);
 		fill(color(255, 255, 255));
@@ -105,8 +104,31 @@ function draw(){
 		if(mouseOverButton() && mouseIsPressed){
 			startGame();
 		}
+	}
+	else{
+		textAlign(CENTER);
+		textSize(30);
+		background(50, 10, 80);
+		fill(255, 255, 255);
+		text("Game Over!", width/2, height - 340);
+		text("Your Score: " + $("#score").html(), width/2, height - 300);
 
+		rectMode(CENTER);
+		if(mouseOverButton()){
+			fill(color(187, 131, 252));
+		}
+		else{
+			fill(color(161, 81, 219));
+		}
+		rect(width / 2, height / 2 + 160, 220, 70);
 
+		textSize(22);
+		fill(color(255, 255, 255));
+		text("Submit Highscore", width/2, height - 130);
+
+		if(mouseOverButton() && mouseIsPressed){
+			updateHighScore(parseInt($("#score").html()));
+		}
 	}
 }
 
@@ -114,8 +136,6 @@ function draw(){
 function updateHighScore(score){
 	highscore(score);  // submit to API
 }
-
-
 
 
 var timeBoi;
