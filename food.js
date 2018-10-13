@@ -25,7 +25,7 @@ class Food {
   }
 
 
-  drawFood(res){
+  drawFood(){
   	fill(color(255, 0, 0));
   	rect(f.x * res, f.y * res, res, res);
   }
