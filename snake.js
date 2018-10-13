@@ -1,10 +1,9 @@
 
 
 class Snake{
-  constructor(parts, dir, res){
+  constructor(parts, dir){
   	this.parts = parts;
   	this.dir = dir;
-    this.res = res;
     this.increasing = false
     this.selfIntersects = false
   }
@@ -32,9 +31,8 @@ class Snake{
 
   drawSnake(){
     if(this.selfIntersects){
+      gameEnded = true;
       fill(color(200, 0, 0));
-      noLoop();
-      updateHighScore(parseInt($("#score").html()));
       clearInterval(timeBoi);
     }
     else{
@@ -47,16 +45,16 @@ class Snake{
 
   checkBounds(width, height){
     if(this.parts[0].y < 0){
-      this.parts[0].y = height - this.res;
+      this.parts[0].y = height - res;
     }
-    else if(this.parts[0].x + this.res > width){
+    else if(this.parts[0].x + res > width){
       this.parts[0].x = 0;
     }
-    else if(this.parts[0].y + this.res > height){
+    else if(this.parts[0].y + res > height){
       this.parts[0].y = 0;
     }
     else if(this.parts[0].x < 0){
-      this.parts[0].x = width - this.res;
+      this.parts[0].x = width - res;
     }
   }
 
