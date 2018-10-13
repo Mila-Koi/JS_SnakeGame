@@ -7,6 +7,7 @@ let snakeLocation = new Coordinate(0, 0);
 let gameStarted = false;
 var gameEnded = false;
 let justChangedDir = false;
+let submitted = false;
 let s = new Snake([snakeLocation], "right");
 let f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
 var fd = 6;
@@ -35,26 +36,17 @@ function aniText(){
     $("#about").fadeIn("slow");
     $("#about").fadeOut("slow");
     $("#about").fadeIn("slow");
-
-
 }
 
 function mouseOverButton(){
 	return ((mouseX > (width / 2 - 110)) && (mouseX < (width / 2 + 110)) && (mouseY > (height / 2 + 125)) && (mouseY < (height / 2 + 195)));
 }
 
+function mouseOverPlayAgain(){
+	return ((mouseX > (width / 2 - 110)) && (mouseX < (width / 2 + 110)) && (mouseY > (height / 2 + 45)) && (mouseY < (height / 2 + 115)));
+}
+
 function keyPressed(){
-	// if(justChangedDir){
-	// 	$("*").on("keydown", "#markdown, #sku", function(e) {
-	//
-	// 		var key = e.which;
-	//
-	// 		if (key == 37 || key == 39 || key==38 || key== 40) {
-	// 				e.preventDefault();
-	// 		}
-	// 	});
-	// 	justChangedDir=false;
-	// }
 	switch(keyCode){
 		case LEFT_ARROW:
 			justChangedDir = true;
@@ -81,7 +73,6 @@ function keyPressed(){
 			}
 			break;
 	}
-
 }
 
 
@@ -140,12 +131,36 @@ function draw(){
 		}
 		rect(width / 2, height / 2 + 160, 220, 70);
 
+		if(mouseOverPlayAgain()){
+			fill(color(187, 131, 252));
+		}
+		else{
+			fill(color(161, 81, 219));
+		}
+		rect(width / 2, height / 2 + 80, 220, 70);
+
 		textSize(22);
 		fill(color(255, 255, 255));
+		text("Play Again", width/2, height - 210);
 		text("Submit Highscore", width/2, height - 130);
 
 		if(mouseOverButton() && mouseIsPressed){
-			updateHighScore(parseInt($("#score").html()));
+			if(!submitted){
+				updateHighScore(parseInt($("#score").html()));
+				submitted = true;
+			}
+			else{
+				alert("You already submitted a score or cancelled. You must play again to resubmit a score.");
+			}
+		}
+		if(mouseOverPlayAgain() && mouseIsPressed){
+			s = new Snake([snakeLocation], "right");
+			f = new Food(Math.floor(width / res / 2), Math.floor(height / res / 2));
+			gameStarted = false;
+			gameEnded = false;
+			justChangedDir = false;
+			submitted = false;
+			fd = 6;
 		}
 	}
 }
