@@ -43,6 +43,17 @@ function mouseOverButton(){
 }
 
 function keyPressed(){
+	// if(justChangedDir){
+	// 	$("*").on("keydown", "#markdown, #sku", function(e) {
+	//
+	// 		var key = e.which;
+	//
+	// 		if (key == 37 || key == 39 || key==38 || key== 40) {
+	// 				e.preventDefault();
+	// 		}
+	// 	});
+	// 	justChangedDir=false;
+	// }
 	switch(keyCode){
 		case LEFT_ARROW:
 			justChangedDir = true;
@@ -69,6 +80,7 @@ function keyPressed(){
 			}
 			break;
 	}
+
 }
 
 
@@ -87,9 +99,8 @@ function draw(){
   	s.drawSnake();
   	f.drawFood(res);
 
-		if(justChangedDir){
-			
-		}
+
+
 	}
 	else{
 		background(166, 145, 247);
