@@ -1,4 +1,4 @@
-Authors: Nicolas Capra, David Ayres, Tanner Jones
+Authors: Nicolas Capra, Mila Evans, Tanner Jones
 
 Why we deserve 100/100: Our project meets all of the desired criteria, giving the player a couple twists throughout the game. This includes speeding up at certain points
                         throughout the game as well as a feature that doesn't allow the player to turn back right next to the snakes tail without possibly dying if they
